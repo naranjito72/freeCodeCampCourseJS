@@ -2,16 +2,19 @@
 describe('variables declared by the name of', () => {
 
   beforeEach(() => {
-    this.myNoun = 'cat';
-      this.constTwo = 'I said, "Hey Jude"';
-      this.constThree = "I said, 'Hey Jude'";
-      this.constFour = "I said Hey Jude come here";
-      this.character = this.myNoun.charAt(1);
-      this.emptyString = this.constTwo.charAt(40);
+      this.myNoun         = 'cat';
+      this.myAdjective    = "big";
+      this.myVerb         = " ran ";
+      this.myAdverb       = "quickly";
+      this.constTwo       = 'I said, "Hey Jude"';
+      this.constThree     = "I said, 'Hey Jude'";
+      this.constFour      = "I said Hey Jude come here";
+      this.character      = this.myNoun.charAt(1);
+      this.emptyString    = this.constTwo.charAt(40);
       this.indexSubstring = this.constTwo.indexOf('Jude');
-      this.notFoundIndex = this.constTwo.indexOf('jude');
-      this.noString = '';
-      this.arrayModel = [];
+      this.notFoundIndex  = this.constTwo.indexOf('jude');
+      this.noString       = '';
+      this.arrayModel     = [];
       this.arrayOfLetters = this.myNoun.split('');
       this.arrayOfOneChosenLetter = this.constFour.split('e');
   });
@@ -54,7 +57,7 @@ describe('variables declared by the name of', () => {
     it("should return -1 if isn't a substring to be found by indexOf()", () => {
       expect(this.notFoundIndex === -1).toBeTruthy();
     });
-// array from string
+// split from string
     it('should return an array length > 0 if there is a string when using split("") method', () => {
       expect(this.arrayOfLetters.length !== this.arrayModel.length).toBeTruthy();
     });
@@ -74,8 +77,29 @@ describe('variables declared by the name of', () => {
     it('should erase the character choosen in the split("character of your choice") method', () => {
       expect(this.arrayOfOneChosenLetter.includes('e')).toBeFalsy();
     });
-  });
+    // concatenation
+    it('should concatenate strings when using the plus(+) sign', () => {
+      this.wordBlanks = "The" + " " + this.myAdjective + " " + this.myNoun +  this.myVerb + " " + this.myAdverb + " " + "behind the bushes.";
+      expect(this.wordBlanks).toEqual('The big cat ran  quickly behind the bushes.');
+    });
+    // formating
+    it('should get all in upper capital when using toUpperCase()', () => {
+      expect(this.myNoun.toUpperCase() === 'CAT').toBeTruthy();
+    });
 
+    it('should get all in lower capital when using toLowerCase()', () => {
+      expect(this.myNoun.toUpperCase().toLowerCase() === 'cat').toBeTruthy();
+    });
+
+    it('should trim white spaces in front when using trim() method', () => {
+      expect(this.myVerb.trim() === 'ran').toBeTruthy();
+    });
+
+    it('should erase all white spaces when using replace(/\s/g, "")', () => {
+      expect(this.myVerb.replace(/\s/g, '') === 'ran').toBeTruthy();
+    });
+
+  });
 
 
 });
