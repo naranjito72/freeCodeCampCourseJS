@@ -18,8 +18,86 @@ describe('variables declared by the name of', () => {
       this.arrayOfLetters = this.myNoun.split('');
       this.arrayOfOneChosenLetter = this.constFour.split('e');
   });
+describe('mystrings', function(){
+it('describes a function', function(){
+  expect(typeof(returnStrings)).toBe('function')
+});
+});
+describe("Strings", () => {
+  let stringsToBeRead;
+  let noun = 'dog';
+  let verb   = 'jump';
+  let adverb   = 'slowly';
+  let adjective   = 'small';
 
-  describe('myNoun, myVerb, myAdverb, myAdjective', () => {
+  beforeEach (function () {
+    stringsToBeRead = new Strings(noun, adjective, verb, adverb );
+  });
+describe("constructor function", () => {
+  it("should receive 4 arguments (noun, verb, adverb & adjective)", () => {
+    expect(Strings.length).toEqual(4);
+  });
+  describe('methods class', () => {
+    it('setters & getters from noun should be public functions', () => {
+      expect(typeof(stringsToBeRead.getMyNoun)).toBe('string');
+      expect((stringsToBeRead.setMyNoun === 'lion')).toEqual(false);
+      expect((stringsToBeRead.setMyNoun = 'lion')).toEqual('lion');
+    });
+    it('setters & getters from verb should be public functions', () => {
+      expect(typeof(stringsToBeRead.getMyVerb)).toBe('string');
+      expect((stringsToBeRead.setMyVegetMyVerb === 'seat')).toEqual(false);
+      expect((stringsToBeRead.setMyVegetMyVerb = 'seat')).toEqual('seat');
+    });
+    it(`setters & getters from adverb should be public functions`, () => {
+      expect(typeof(stringsToBeRead.getMyAdverb)).toBe('string');
+      expect((stringsToBeRead.setMyAdverb === 'quickly')).toEqual(false);
+      expect((stringsToBeRead.setMyAdverb = 'quickly')).toEqual('quickly');
+    });
+    it('setters & getters  from adjective should be public functions', () => {
+      expect(typeof(stringsToBeRead.getMyAdjective)).toBe('string');
+      expect((stringsToBeRead.setMyAdjective === 'lion')).toEqual(false);
+      expect((stringsToBeRead.setMyAdjective = 'lion')).toEqual('lion');
+    });
+  });
+  describe('properties class', () => {
+    it('should be a string', () => {
+      expect(stringsToBeRead.getMyNoun).toEqual(noun);
+    });
+    it(`should be a string `, () => {
+      expect(stringsToBeRead.getMyVerb).toEqual(verb);
+    });
+    it('should be a string', () => {
+      expect(stringsToBeRead.getMyAdverb).toEqual(adverb);
+    });
+    it('should be a string', () => {
+      expect(stringsToBeRead.getMyAdjective).toEqual(adjective);
+    });
+  })
+  describe('constructor parameters', () => {
+   
+      const ALLSTRINGS = [
+        {case: noun, answer: 'dog'},
+        {case: verb, answer: 'jump'},
+        {case: adverb, answer: 'slowly'},
+        {case: adjective, answer: 'small'}
+      ];
+      ALLSTRINGS.forEach((item, i) => {
+        it(`should return all strings parameter constructor number: ${i+1} return: ${item.answer} `, () => {
+          expect(item.case).toEqual(item.answer);
+        });
+        it(`should return the first letter if we use charAt(1)method param constructor number: ${i+1} return: ${item.answer.charAt(1)}`, ()=>{
+          expect(item.case.charAt(1)).toEqual(item.answer.charAt(1));
+        });
+        it(`should return and empty string if charAt() method is bigger than the word. Param constructor number: ${i+1} return string length: ${item.answer.charAt(50).length}`, () => {
+          expect(item.case.charAt(50).length).toEqual(item.answer.charAt(40).length);
+          expect(item.case.charAt(25) === '').toBeTruthy();
+          expect(item.answer.charAt(25).length == 0).toBeTruthy();
+      });
+  });
+});
+
+})
+  describe('noun, verb, adverb, adjective', () => {
 
     it('its value should be a string', () => {
       expect(this.myNoun).toBe('cat');
@@ -101,5 +179,5 @@ describe('variables declared by the name of', () => {
 
   });
 
-
+})
 });
