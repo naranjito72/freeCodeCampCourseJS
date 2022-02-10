@@ -23,7 +23,7 @@ it('describes a function', function(){
   expect(typeof(returnStrings)).toBe('function')
 });
 });
-describe("Strings", () => {
+describe("class Strings", () => {
   let stringsToBeRead;
   let noun = 'dog';
   let verb   = 'jump';
@@ -33,32 +33,64 @@ describe("Strings", () => {
   beforeEach (function () {
     stringsToBeRead = new Strings(noun, adjective, verb, adverb );
   });
+  
 describe("constructor function", () => {
   it("should receive 4 arguments (noun, verb, adverb & adjective)", () => {
     expect(Strings.length).toEqual(4);
   });
-  describe('methods class', () => {
-    it('setters & getters from noun should be public functions', () => {
+  
+  describe('methods class setMyNoun() and getMyNoun()', () => {
+    it('get getMyNoun() should be public function and return the string settled in class constructor or setMyNoun()', () => {
       expect(typeof(stringsToBeRead.getMyNoun)).toBe('string');
-      expect((stringsToBeRead.setMyNoun === 'lion')).toEqual(false);
+      expect((stringsToBeRead.getMyNoun === 'lion')).toBeFalsy();
+      expect((stringsToBeRead.getMyNoun === 'dog')).toBeTruthy();
+    });
+    it('set setMyNoun() should be a public function and return the string that we introduced as parameter', () => {
       expect((stringsToBeRead.setMyNoun = 'lion')).toEqual('lion');
-    });
-    it('setters & getters from verb should be public functions', () => {
-      expect(typeof(stringsToBeRead.getMyVerb)).toBe('string');
-      expect((stringsToBeRead.setMyVegetMyVerb === 'seat')).toEqual(false);
-      expect((stringsToBeRead.setMyVegetMyVerb = 'seat')).toEqual('seat');
-    });
-    it(`setters & getters from adverb should be public functions`, () => {
-      expect(typeof(stringsToBeRead.getMyAdverb)).toBe('string');
-      expect((stringsToBeRead.setMyAdverb === 'quickly')).toEqual(false);
-      expect((stringsToBeRead.setMyAdverb = 'quickly')).toEqual('quickly');
-    });
-    it('setters & getters  from adjective should be public functions', () => {
-      expect(typeof(stringsToBeRead.getMyAdjective)).toBe('string');
-      expect((stringsToBeRead.setMyAdjective === 'lion')).toEqual(false);
-      expect((stringsToBeRead.setMyAdjective = 'lion')).toEqual('lion');
-    });
+      expect((stringsToBeRead.getMyNoun === 'lion')).toBeTruthy();
+      expect(stringsToBeRead.setMyNoun = noun).toEqual(noun);
+    });  
   });
+
+  describe('methods class setMyVerb() and getMyVerb()', () => {
+    it('get getMyVerb() should be public function and return the string settled in class constructor or setMyVerb()', () => {
+      expect(typeof(stringsToBeRead.getMyVerb)).toBe('string');
+      expect((stringsToBeRead.getMyVerb === 'eat')).toBeFalsy();
+      expect((stringsToBeRead.getMyVerb === verb)).toBeTruthy();
+    });
+    it('set setMyVerb() should be a public function and return the string that we introduced as parameter', () => {
+      expect((stringsToBeRead.setMyVerb = 'eat')).toEqual('eat');
+      expect((stringsToBeRead.getMyVerb === 'eat')).toBeTruthy();
+      expect(stringsToBeRead.setMyVerb = verb).toEqual(verb);
+    });  
+  });
+
+  describe('methods class setMyAdverb() and getMyAdverb()', () => {
+    it('get getMyAdverb() should be public function and return the string settled in class constructor or setMyAdverb()', () => {
+      expect(typeof(stringsToBeRead.getMyAdverb)).toBe('string');
+      expect((stringsToBeRead.getMyAdverb === 'calmly')).toBeFalsy();
+      expect((stringsToBeRead.getMyAdverb === adverb)).toBeTruthy();
+    });
+    it('set setMyAdverb() should be a public function and return the string that we introduced as parameter', () => {
+      expect((stringsToBeRead.setMyAdverb = 'luvely')).toEqual('luvely');
+      expect((stringsToBeRead.getMyAdverb === 'luvely')).toBeTruthy();
+      expect(stringsToBeRead.setMyAdverb = adverb).toEqual(adverb);
+    });  
+  });
+
+  describe('methods class setMyAdjective() and getMyAdjective()', () => {
+    it('get getMyAdjective() should be public function and return the string settled in class constructor or setMyAdjective()', () => {
+      expect(typeof(stringsToBeRead.getMyAdjective)).toBe('string');
+      expect((stringsToBeRead.getMyAdjective === 'lion')).toBeFalsy();
+      expect((stringsToBeRead.getMyAdjective === adjective)).toBeTruthy();
+    });
+    it('set setMyAdjective() should be a public function and return the string that we introduced as parameter', () => {
+      expect((stringsToBeRead.setMyAdjective = 'tall')).toEqual('tall');
+      expect((stringsToBeRead.getMyAdjective === 'tall')).toBeTruthy();
+      expect(stringsToBeRead.setMyAdjective = adjective).toEqual(adjective);
+    });  
+  });
+
   describe('properties class', () => {
     it('should be a string', () => {
       expect(stringsToBeRead.getMyNoun).toEqual(noun);
@@ -82,7 +114,7 @@ describe("constructor function", () => {
         {case: adjective, answer: 'small'}
       ];
       ALLSTRINGS.forEach((item, i) => {
-        it(`should return all strings parameter constructor number: ${i+1} return: ${item.answer} `, () => {
+        it(`should return all strings parameter constructor. Parameter: ${item.case} return: ${item.answer} `, () => {
           expect(item.case).toEqual(item.answer);
         });
         it(`should return the first letter if we use charAt(1)method param constructor number: ${i+1} return: ${item.answer.charAt(1)}`, ()=>{
@@ -93,6 +125,7 @@ describe("constructor function", () => {
           expect(item.case.charAt(25) === '').toBeTruthy();
           expect(item.answer.charAt(25).length == 0).toBeTruthy();
       });
+       
   });
 });
 
