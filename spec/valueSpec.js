@@ -18,6 +18,18 @@ describe('addNumbers', () => {
         });
         it('retunUndefined() should NOT return any value whatsoever but undefined', () => {
             expect(functionAddNumber.undefinedValueReturn).not.toEqual(5)
+        });
+    });
+    // function with returns
+    describe('adding numerical functions. AddThree()', () => {
+        it('should be a function', () => {
+            expect(typeof(functionAddNumber.addThree)).toEqual('function');
+        });
+        it('should return a numerical value', () => {
+           // functionAddNumber.addThree('hola');
+           // expect(functionAddNumber.addThreeOperation === 8).toBeFalsy()
+           functionAddNumber.addThree(5);
+           expect(functionAddNumber.addThreeOperation += 3).toBeTruthy();
         })
     });
 });
