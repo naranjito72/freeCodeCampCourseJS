@@ -26,10 +26,13 @@ describe('addNumbers', () => {
             expect(typeof(functionAddNumber.addThree)).toEqual('function');
         });
         it('should return a numerical value', () => {
-           // functionAddNumber.addThree('hola');
-           // expect(functionAddNumber.addThreeOperation === 8).toBeFalsy()
            functionAddNumber.addThree(5);
-           expect(functionAddNumber.addThreeOperation += 3).toBeTruthy();
-        })
+           expect(functionAddNumber.addThreeOperation === 8).toBeTruthy();
+        });
+        it('if string added, should not return a numerical value', () => {
+           functionAddNumber.addThree('hola');
+           expect(functionAddNumber.addThreeOperation === 8).toBeFalsy()
+           expect(functionAddNumber.addThreeOperation === 'hola3').toBeTruthy()
+        });
     });
 });
