@@ -32,7 +32,8 @@ describe('addNumbers', () => {
         it('if string added, should not return a numerical value', () => {
            functionAddNumber.addThree('hola');
            expect(functionAddNumber.addThreeOperation === 8).toBeFalsy()
-           expect(functionAddNumber.addThreeOperation === 'hola3').toBeTruthy()
+           expect(functionAddNumber.addThreeOperation === 'hola3').toBeFalsy()
+           expect(functionAddNumber.addThreeOperation === undefined).toBeTruthy()
         });
     });
 });

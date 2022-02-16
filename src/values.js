@@ -2,9 +2,18 @@ function AddNumbers() {
 }
 ;
 AddNumbers.prototype.addThree = function (num) {
-    this.addThreeOperation = num + 3;
+    this.checkMe = AddNumbers.prototype.checkIfNumber(num);
+    (this.checkMe != undefined) ? this.addThreeOperation = num + 3 :
+        this.addThreeOperation = undefined;
 };
-AddNumbers.prototype.addFive = (num) => {
-    this.addFiveOperation = num + 5;
+AddNumbers.prototype.addFive = function (num) {
+    this.checkMe = AddNumbers.prototype.checkIfNumber(num);
+    (this.checkMe != undefined) ? this.addFiveOperation = num + 5 :
+        this.addFiveOperation = undefined;
 };
-AddNumbers.prototype.returnUndefined = () => undefined;
+AddNumbers.prototype.checkIfNumber = function (item) {
+    let result;
+    this.checkItem = isNaN(item);
+    (!this.checkItem) ? result = item : result = undefined;
+    return result;
+};
