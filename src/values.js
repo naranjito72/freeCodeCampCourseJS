@@ -2,11 +2,13 @@ function AddNumbers() {
 }
 ;
 AddNumbers.prototype.addThree = function (num) {
+    num = +num;
     this.checkMe = AddNumbers.prototype.checkIfNumber(num);
     (this.checkMe != undefined) ? this.addThreeOperation = num + 3 :
         this.addThreeOperation = undefined;
 };
 AddNumbers.prototype.addFive = function (num) {
+    num = +num;
     this.checkMe = AddNumbers.prototype.checkIfNumber(num);
     (this.checkMe != undefined) ? this.addFiveOperation = num + 5 :
         this.addFiveOperation = undefined;

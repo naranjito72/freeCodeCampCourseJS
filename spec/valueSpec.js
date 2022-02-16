@@ -29,11 +29,46 @@ describe('addNumbers', () => {
            functionAddNumber.addThree(5);
            expect(functionAddNumber.addThreeOperation === 8).toBeTruthy();
         });
-        it('if string added, should not return a numerical value', () => {
+        it('if numerical string added, should return a numerical value', () => {
+           functionAddNumber.addThree('3');
+           expect(functionAddNumber.addThreeOperation === 6).toBeTruthy();
+        });
+        it('if string added, should not return a string value', () => {
            functionAddNumber.addThree('hola');
-           expect(functionAddNumber.addThreeOperation === 8).toBeFalsy()
-           expect(functionAddNumber.addThreeOperation === 'hola3').toBeFalsy()
-           expect(functionAddNumber.addThreeOperation === undefined).toBeTruthy()
+           expect(functionAddNumber.addThreeOperation === 'hola3').toBeFalsy();
+        });
+        it('if string added, should return an "undefined" as a value', () => {
+           functionAddNumber.addThree('hola');
+           expect(functionAddNumber.addThreeOperation === undefined).toBeTruthy();
+        });
+    });
+    describe('adding numerical functions. AddFive()', () => {
+        it('should be a function', () => {
+            expect(typeof(functionAddNumber.addFive)).toEqual('function');
+        });
+        it('should return a numerical value', () => {
+           functionAddNumber.addFive(5);
+           expect(functionAddNumber.addFiveOperation === 10).toBeTruthy();
+        });
+        it('if string added, should not return a numerical value', () => {
+           functionAddNumber.addFive('3');
+           expect(functionAddNumber.addFiveOperation === 8).toBeTruthy();
+        });
+        it('if string added, should not return a numerical value', () => {
+           functionAddNumber.addFive('3');
+           expect(functionAddNumber.addFiveOperation === '35').toBeFalsy();
+        });
+        it('if string added, should not return a string value', () => {
+           functionAddNumber.addFive('hola');
+           expect(functionAddNumber.addFiveOperation === 'hola5').toBeFalsy();
+        });
+        it('if a numerical string added, should return a numerical value', () => {
+           functionAddNumber.addFive('3');
+           expect(functionAddNumber.addFiveOperation === undefined).toBeFalsy();
+        });
+        it('if a string added, should return "undefined" as a value', () => {
+           functionAddNumber.addFive('hola');
+           expect(functionAddNumber.addFiveOperation === undefined).toBeTruthy();
         });
     });
 });
